@@ -12,7 +12,7 @@
 * [back-end](https://stormy-hollows-76214.herokuapp.com) (when applicable)
 
 #### Documentation
-* [jsdoc](https://stormy-hollows-76214.herokuapp.com/docs) Not sure why this is not working... docs exist in repo
+* [jsdoc](https://stormy-hollows-76214.herokuapp.com/docs)
 
 
 ### Setup
