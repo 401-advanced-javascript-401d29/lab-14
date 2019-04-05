@@ -9,39 +9,60 @@
 ### Links and Resources
 * [repo](https://github.com/401-advanced-javascript-401d29/lab-14/pull/1)
 * [travis](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-14)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [back-end](https://stormy-hollows-76214.herokuapp.com) (when applicable)
 
 #### Documentation
-* [swagger](http://xyz.com) (API assignments only)
-* [jsdoc](http://xyz.com) (All assignments)
+* [jsdoc](https://stormy-hollows-76214.herokuapp.com/docs) Not sure why this is not working... docs exist in repo
 
-### Modules
-#### `modulename.js`
-##### Exported Values and Methods
-
-###### `foo(thing) -> string`
-Usage Notes or examples
-
-###### `bar(array) -> array`
-Usage Notes or examples
 
 ### Setup
 #### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+* `PORT` - 3000
+* `MONGODB_URI` - MONGODB_URI=MONGODB_URI=mongodb://localhost:27017/users
+* `SECRET` - Puppy
 
 #### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+* To run Mongo
+  * Open 3 terminal tabs
+    * First tab
+      * mongod --dbpath=/Users/erintrainor/codefellows/data/db (substitute your file path)
+      * Second tab
+        * mongo
+      * Third tab
+        * nodemon
   
+#### Terminal commands to manipulate databaes
+* Add a role
+  * echo '{"role":"superuser", "capabilities":["create","read","update","delete", "superuser"]}' | http :3000/roles
+  * echo '{"role":"admin", "capabilities":["create","read","update","delete"]}' | http :3000/roles
+  * echo '{"role":"editor", "capabilities":["create", "read", "update"]}' | http :3000/roles
+  * echo '{"role":"user", "capabilities":["read"]}' | http :3000/roles
+* Add a User
+  * echo '{"username":"michelangelo", "password":"michelangelo", "role":"superuser"}' | http post :3000/signup
+  * echo '{"username":"leonardo", "password":"leonardo", "role":"admin"}' | http post :3000/signup
+  * echo '{"username":"donatello", "password":"donatello", "role":"editor"}' | http post :3000/signup
+  * echo '{"username":"raphael", "password":"raphael", "role":"user"}' | http post :3000/signup
+* Sign-In
+  * http post :3000/signin -a michelangelo:michelangelo
+  * http post :3000/signin -a leonardo:leonardo
+  * http post :3000/signin -a donatello:donatello
+  * http post :3000/signin -a raphael:raphael
+* Check if a user is authorized (after signing-in) - The user that is currently signed in will determine the messages sent
+  * http get :3000/public-stuff "Authorization: Bearer ${access_token}"
+  * http get :3000/hidden-stuff "Authorization: Bearer ${access_token}"
+  * http get :3000/something-to-read "Authorization: Bearer ${access_token}"
+  * http post :3000/create-a-thing "Authorization: Bearer ${access_token}"
+  * http put :3000/update "Authorization: Bearer ${access_token}"
+  * http patch :3000/jp "Authorization: Bearer ${access_token}"
+  * http delete :3000/bye-bye "Authorization: Bearer ${access_token}"
+  * http get :3000/everything "Authorization: Bearer ${access_token}"
 #### Tests
 * How do you run tests?
+  * npm run test
 * What assertions were made?
+  * Only what is part of the sample code
 * What assertions need to be / should be made?
+  * additional things
 
 #### UML
-Link to an image of the UML for your application and response to events
+![UML Diagram](assets/uml.jpg)
