@@ -4,10 +4,11 @@
 ## Access Control (ACL)
 
 ### Author: Erin Trainor
+[![Build Status](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-14.svg?branch=submission)](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-14)
 
 ### Links and Resources
-* [repo](http://xyz.com)
-* [travis](http://xyz.com)
+* [repo](https://github.com/401-advanced-javascript-401d29/lab-14/pull/1)
+* [travis](https://www.travis-ci.com/401-advanced-javascript-401d29/lab-14)
 * [back-end](http://xyz.com) (when applicable)
 * [front-end](http://xyz.com) (when applicable)
 

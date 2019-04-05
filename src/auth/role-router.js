@@ -36,7 +36,10 @@ rolesRouter.delete('/bye-bye', auth('delete'), (req, res, next) => {
 rolesRouter.get('/everything', auth('superuser'), (req, res, next) => {
   res.status(200).send('Welcome, you are able to do anything!');
 });
-
+/**
+ * @name rolesRouter.post()
+ * Sends a new role to the database
+ */
 rolesRouter.post('/roles', (req,res,next) => {
   let role = new Role(req.body);
   role.save();
